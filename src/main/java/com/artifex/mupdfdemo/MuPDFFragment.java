@@ -425,6 +425,7 @@ public class MuPDFFragment extends Fragment implements FilePicker.FilePickerSupp
 						core.countPages()));
 				mPageSlider.setMax((core.countPages() - 1) * mPageSliderRes);
 				mPageSlider.setProgress(i * mPageSliderRes);
+				showButtons();
 				super.onMoveToChild(i);
 			}
 
@@ -782,7 +783,7 @@ public class MuPDFFragment extends Fragment implements FilePicker.FilePickerSupp
 			anim.setDuration(200);
 			anim.setAnimationListener(new Animation.AnimationListener() {
 				public void onAnimationStart(Animation animation) {
-					mTopBarSwitcher.setVisibility(View.VISIBLE);
+
 				}
 				public void onAnimationRepeat(Animation animation) {}
 				public void onAnimationEnd(Animation animation) {}
@@ -815,7 +816,7 @@ public class MuPDFFragment extends Fragment implements FilePicker.FilePickerSupp
 				public void onAnimationStart(Animation animation) {}
 				public void onAnimationRepeat(Animation animation) {}
 				public void onAnimationEnd(Animation animation) {
-					mTopBarSwitcher.setVisibility(View.INVISIBLE);
+					mTopBarSwitcher.setVisibility(View.GONE);
 				}
 			});
 			mTopBarSwitcher.startAnimation(anim);
@@ -824,7 +825,7 @@ public class MuPDFFragment extends Fragment implements FilePicker.FilePickerSupp
 			anim.setDuration(200);
 			anim.setAnimationListener(new Animation.AnimationListener() {
 				public void onAnimationStart(Animation animation) {
-					mPageNumberView.setVisibility(View.INVISIBLE);
+					mPageNumberView.setVisibility(View.GONE);
 				}
 				public void onAnimationRepeat(Animation animation) {}
 				public void onAnimationEnd(Animation animation) {
@@ -918,7 +919,7 @@ public class MuPDFFragment extends Fragment implements FilePicker.FilePickerSupp
 		mSearchText = (EditText)mButtonsView.findViewById(R.id.searchText);
 		mLinkButton = (ImageButton)mButtonsView.findViewById(R.id.linkButton);
 		mMoreButton = (ImageButton)mButtonsView.findViewById(R.id.moreButton);
-		mTopBarSwitcher.setVisibility(View.INVISIBLE);
+		mTopBarSwitcher.setVisibility(View.GONE);
 		mPageNumberView.setVisibility(View.INVISIBLE);
 		mInfoView.setVisibility(View.INVISIBLE);
 		mPageSlider.setVisibility(View.INVISIBLE);
